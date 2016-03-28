@@ -17,13 +17,16 @@ public class SimpleThreading {
 	public static void main(String[] args) {
 		MyLocalThread t1 = new MyLocalThread(1);
 		MyLocalThread t2 = new MyLocalThread(2);
-		Thread t3 = new Thread(new MyThreadWithRunnable(3));
-		Thread t4 = new Thread(new MyThreadWithRunnable(4));
-
+		Thread t3 = new Thread(new MyThreadWithRunnable(3), "Thread Three");
+		Thread t4 = new Thread(new MyThreadWithRunnable(4), "Thread Four");
+		
+		//use start(), don't use run()
 		t1.start();
 		t2.start();
 		t3.start();
 		t4.start();
+		
+		System.out.println("Main: "+Thread.currentThread().getName());
 	}
 }
 
@@ -58,6 +61,6 @@ class MyThreadWithRunnable implements Runnable {
 
 	@Override
 	public void run() {
-		System.out.println("Thread Id:" + id);
+		System.out.println("Thread Id:" + id + " Name:"+Thread.currentThread().getName());
 	}
 }

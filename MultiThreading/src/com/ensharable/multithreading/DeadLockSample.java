@@ -10,7 +10,7 @@ package com.ensharable.multithreading;
  * Thread 2 wait for resource (lock1) which Thread1 is holding
  * Deadlock happen
  * 
- * To avoid deadlock, thead get the resource at the same sequence lock1 then lock2
+ * To avoid deadlock, thread get the resource at the same sequence lock1 then lock2
  * 
  * @author yuehu_ou
  *
